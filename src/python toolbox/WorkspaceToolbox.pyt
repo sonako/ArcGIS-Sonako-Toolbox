@@ -1,7 +1,9 @@
 ﻿# -*- coding: utf-8 -*-
 
 """
-ArcGISのFGDBの全フィーチャクラス、全テーブルのレコードをトランケートする。
+Allows to the user to truncate all tables in ArcGIS GDB.
+
+ArcGIS: 10.1
 """
 
 __author__ = 'Hidenori TERANO'
@@ -23,14 +25,16 @@ class Toolbox(object):
 class WorkspaceTruncater(object):
 	def __init__(self):
 		self.label = u'WorkspaceTruncater'
-		self.description = u'ワークスペース内にある全テーブル、フィーチャクラスのレコードを削除します'
+		self.description = u'allows to the user to truncate all tables in workspace.'
 		self.canRunInBackground = False
 	
 	
 	def getParameterInfo(self):
 		params = []
-		params.append(arcpy.Parameter(displayName = u'処理対象のワークスペース', name = 't_workspace', datatype = u'ワークスペース', parameterType = 'Required', direction = 'Input'))
-		params.append(arcpy.Parameter(displayName = u'処理対象外のオブジェクト', name = 'skip_obj', datatype = 'String', parameterType = 'Optional', direction = 'Input', multiValue = True))
+		# arcgis bug?
+		# params.append(arcpy.Parameter(displayName = u'Target Workspace', name = 't_workspace', datatype = u'Workspace', parameterType = 'Required', direction = 'Input'))
+		params.append(arcpy.Parameter(displayName = u'Target Workspace', name = 't_workspace', datatype = u'ワークスペース', parameterType = 'Required', direction = 'Input'))
+		params.append(arcpy.Parameter(displayName = u'Skip Table', name = 'skip_obj', datatype = 'String', parameterType = 'Optional', direction = 'Input', multiValue = True))
 		
 		return params
 	
