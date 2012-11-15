@@ -2,7 +2,7 @@
 
 """
 1. Allows to the user to truncate all tables in ArcGIS GDB.
-1. Allows to the user to delete all tables and domains in ArcGIS GDB.
+2. Allows to the user to delete all tables and domains in ArcGIS GDB.
 """
 
 __author__ = 'Hidenori TERANO'
